@@ -1,0 +1,206 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw5iiw6h6as70"]
+
+[ext_resource type="ArrayMesh" uid="uid://c71lh8upp6b7d" path="res://models/shotgun.obj" id="1_fncc7"]
+[ext_resource type="Script" path="res://scripts/gun_holder.gd" id="1_i8w2k"]
+[ext_resource type="AudioStream" uid="uid://dii88xqna23cu" path="res://audio/sounds/shotgun shoot.ogg" id="3_oq24y"]
+[ext_resource type="AudioStream" uid="uid://bhacufmuh5u7b" path="res://audio/sounds/shotgun reload.ogg" id="4_188m7"]
+
+[sub_resource type="Animation" id="Animation_jraln"]
+resource_name = "shotgun_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guns/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.455, -1.58, -2), Vector3(1.455, -1.725, -2), Vector3(1.455, -1.58, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guns/Shotgun:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.139626, 0, 0), Vector3(0, 0, 0), Vector3(-0.139626, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wdgq3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guns/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.455, -1.58, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guns/Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oaoxi"]
+resource_name = "shotgun_shoot"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guns/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.455, -1.58, -1.705), Vector3(1.455, -1.58, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guns/Shotgun:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.279253, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guns/Shotgun/ShootAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1h58b"]
+resource_name = "shotgun_reload"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guns/Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.35, 0.5, 0.65, 0.85, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.455, -1.58, -2), Vector3(0, -0.815, -1.305), Vector3(0.285, -1.01, -1.305), Vector3(0.285, -1.01, -1.305), Vector3(0, -0.815, -1.305), Vector3(0, -0.815, -1.305), Vector3(1.455, -1.58, -2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guns/Shotgun:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.4, 0.5, 0.6, 0.7, 0.85, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.584685, 1.5708, 0), Vector3(0.443314, 1.5708, 0), Vector3(0.558505, 1.5708, 0), Vector3(0.558505, 1.5708, 0), Vector3(0.443314, 1.5708, 0), Vector3(0.584685, 1.5708, 0), Vector3(0.584685, 1.5708, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guns/Shotgun/ReloadAudio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vysj6"]
+_data = {
+"RESET": SubResource("Animation_wdgq3"),
+"shotgun_idle": SubResource("Animation_jraln"),
+"shotgun_reload": SubResource("Animation_1h58b"),
+"shotgun_shoot": SubResource("Animation_oaoxi")
+}
+
+[node name="GunHolder" type="CanvasLayer"]
+script = ExtResource("1_i8w2k")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 4096
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="GunCam" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+cull_mask = 524288
+
+[node name="Guns" type="Node3D" parent="SubViewportContainer/SubViewport/GunCam"]
+
+[node name="Shotgun" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/GunCam/Guns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.455, -1.58, -2)
+layers = 524288
+mesh = ExtResource("1_fncc7")
+skeleton = NodePath("../../../../..")
+
+[node name="ShootAudio" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/GunCam/Guns/Shotgun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.606594, -0.944921)
+stream = ExtResource("3_oq24y")
+
+[node name="ReloadAudio" type="AudioStreamPlayer3D" parent="SubViewportContainer/SubViewport/GunCam/Guns/Shotgun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.445115, -0.329752)
+stream = ExtResource("4_188m7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/GunCam/Guns"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vysj6")
+}
+autoplay = "RESET"
+
+[node name="ReloadTimer" type="Timer" parent="SubViewportContainer/SubViewport/GunCam/Guns"]
+
+[node name="ShootRay" type="RayCast3D" parent="SubViewportContainer/SubViewport/GunCam"]
+target_position = Vector3(0, 0, -20)
+
+[connection signal="animation_finished" from="SubViewportContainer/SubViewport/GunCam/Guns/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

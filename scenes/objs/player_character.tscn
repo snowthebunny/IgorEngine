@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqpjnlca4lyhp"]
+
+[ext_resource type="Script" path="res://scripts/player_character.gd" id="1_wupej"]
+[ext_resource type="PackedScene" uid="uid://bw5iiw6h6as70" path="res://scenes/objs/gun_holder.tscn" id="2_3apye"]
+[ext_resource type="PackedScene" uid="uid://7cyiqxxu16tb" path="res://scenes/objs/user_interface.tscn" id="3_832g1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wqpec"]
+height = 2.5
+
+[node name="PlayerCharacter" type="CharacterBody3D"]
+script = ExtResource("1_wupej")
+mouse_sens = 0.35
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CapsuleShape3D_wqpec")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cull_mask = 524287
+
+[node name="UserInterface" parent="." instance=ExtResource("3_832g1")]
+z_index = 99
+z_as_relative = false
+
+[node name="GunHolder" parent="." instance=ExtResource("2_3apye")]

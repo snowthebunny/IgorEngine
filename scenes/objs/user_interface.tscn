@@ -1,0 +1,92 @@
+[gd_scene load_steps=12 format=3 uid="uid://7cyiqxxu16tb"]
+
+[ext_resource type="Texture2D" uid="uid://bpqr8fubli8ef" path="res://images/mouse pointer.png" id="1_aia81"]
+[ext_resource type="Texture2D" uid="uid://brd1qfld8rdr5" path="res://images/heart/000.png" id="2_68ut4"]
+[ext_resource type="Texture2D" uid="uid://db8ofmntel0ip" path="res://images/heart/001.png" id="3_isvji"]
+[ext_resource type="Texture2D" uid="uid://vyqm6p4gqi50" path="res://images/heart/002.png" id="4_jbpig"]
+[ext_resource type="Texture2D" uid="uid://cxydj5msi5dt" path="res://images/heart/003.png" id="5_iyvqm"]
+[ext_resource type="Texture2D" uid="uid://j0ktavi3q2e4" path="res://images/heart/004.png" id="6_yv7lr"]
+[ext_resource type="Texture2D" uid="uid://dxafbpt5c48ve" path="res://images/heart/005.png" id="7_yyim5"]
+[ext_resource type="Texture2D" uid="uid://d1a5exu7l5kox" path="res://images/heart/006.png" id="8_1h3hh"]
+[ext_resource type="Texture2D" uid="uid://bohqg36y6da0j" path="res://images/heart/007.png" id="9_pbqfq"]
+[ext_resource type="FontFile" uid="uid://dwpplbosput84" path="res://fonts/Ghastly Panic.ttf" id="10_0hndq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2sexm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_68ut4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_isvji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbpig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iyvqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yv7lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yyim5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1h3hh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pbqfq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UserInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GunPointer" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.490196)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("1_aia81")
+
+[node name="Heart" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(44, 675)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_2sexm")
+frame_progress = 0.354806
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -92.0
+offset_right = 127.0
+offset_bottom = -4.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_0hndq")
+theme_override_font_sizes/font_size = 64
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://0fovgrkwnjmp"]
+
+[sub_resource type="GDScript" id="GDScript_hi2sh"]
+script/source = "extends RigidBody3D
+class_name Enemy
+signal shot()
+
+func _on_shot():
+	freeze = false
+	apply_central_impulse(-((transform.basis * Vector3(0,-1,0)) * 4))
+"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xk4au"]
+height = 0.05
+radius = 1.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_fbyui"]
+
+[node name="Target" type="RigidBody3D" groups=["enemies"]]
+freeze = true
+script = SubResource("GDScript_hi2sh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_xk4au")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_fbyui")
+
+[connection signal="shot" from="." to="." method="_on_shot"]

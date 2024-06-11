@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bhacufmuh5u7b"
+path="res://.godot/imported/shotgun reload.ogg-456b28dd3f4cd8a22227a1ae307926d0.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sounds/shotgun reload.ogg"
+dest_files=["res://.godot/imported/shotgun reload.ogg-456b28dd3f4cd8a22227a1ae307926d0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
