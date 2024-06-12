@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://7cyiqxxu16tb"]
+[gd_scene load_steps=13 format=3 uid="uid://7cyiqxxu16tb"]
 
 [ext_resource type="Texture2D" uid="uid://bpqr8fubli8ef" path="res://images/mouse pointer.png" id="1_aia81"]
+[ext_resource type="Script" path="res://scripts/user_interface.gd" id="1_rjnp1"]
 [ext_resource type="Texture2D" uid="uid://brd1qfld8rdr5" path="res://images/heart/000.png" id="2_68ut4"]
 [ext_resource type="Texture2D" uid="uid://db8ofmntel0ip" path="res://images/heart/001.png" id="3_isvji"]
 [ext_resource type="Texture2D" uid="uid://vyqm6p4gqi50" path="res://images/heart/002.png" id="4_jbpig"]
@@ -50,8 +51,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rjnp1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="GunPointer" type="TextureRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.490196)
@@ -89,5 +92,16 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_0hndq")
 theme_override_font_sizes/font_size = 64
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer"]
+offset_left = 1180.0
+offset_top = 650.0
+offset_right = 1256.0
+offset_bottom = 709.0
+theme_override_fonts/font = ExtResource("10_0hndq")
+theme_override_font_sizes/font_size = 64
+text = "10/10"
 horizontal_alignment = 1
 vertical_alignment = 1

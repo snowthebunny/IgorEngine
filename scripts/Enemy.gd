@@ -8,10 +8,11 @@ class_name Enemy
 ]
 @onready var hurt_audio = $HurtAudio
 @onready var nav_agent:NavigationAgent3D = NavigationAgent3D.new()
-@export var health:int = 3
+@export var health:int = 2
 @export var speed:int = 2
 @onready var animation_player = $AnimationPlayer
 @onready var collision = $Collision
+@onready var death_timer = $DeathTimer
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity", 9.87)
 var dead = false
@@ -57,5 +58,8 @@ func _on_shot():
 		health -= 1
 	elif health <= 0:
 		animation_player.play("dead")
+		death_timer.start()
 		dead = true
 
+func _on_death_timer_timeout():
+	queue_free()

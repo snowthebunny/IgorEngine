@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn4mrmd3xt4b2"]
+
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_vd75p"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vd75p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="MainPanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonsPanel" type="Panel" parent="CanvasLayer/MainPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -216.5
+offset_right = 272.0
+offset_bottom = 216.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(272, 216)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MainPanel/ButtonsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="CanvasLayer/MainPanel/ButtonsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Resume
+"
+
+[node name="Exit" type="Button" parent="CanvasLayer/MainPanel/ButtonsPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/MainPanel/ButtonsPanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/MainPanel/ButtonsPanel/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

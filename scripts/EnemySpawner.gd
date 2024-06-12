@@ -8,6 +8,7 @@ var enemies:Node3D
 func _ready():
 	if get_tree().current_scene.get_node_or_null("Enemies") == null:
 		enemies = Node3D.new()
+		enemies.name = "Enemies"
 		get_tree().current_scene.add_child.call_deferred(enemies)
 	else:
 		enemies = get_tree().current_scene.get_node("Enemies")

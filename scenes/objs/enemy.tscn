@@ -85,3 +85,7 @@ libraries = {
 "": SubResource("AnimationLibrary_fsa50")
 }
 autoplay = "RESET"
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

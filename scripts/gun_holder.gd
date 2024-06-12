@@ -16,6 +16,8 @@ func _ready():
 	animation_player.play(Global.current_gun + "_idle")
 
 func _process(delta):
+	if not Global.player.is_on_floor() and animation_player.current_animation.ends_with("idle"):
+		pass
 	guns_node.rotation = lerp(guns_node.rotation, Vector3(0, 0, 0), (delta * rotate_speed))
 
 func _on_animation_player_animation_finished(anim_name:String):
@@ -32,6 +34,7 @@ func shoot():
 			if col.is_in_group("enemies"):
 				col.emit_signal("shot")
 		shoot_audio.play(0.02)
+		Global.ammo[Global.current_gun_index] -= 1
 		animation_player.play(Global.current_gun + "_shoot")
 		can_shoot = false
 		reload_timer.start()

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw430uqqqhn"]
+
+[ext_resource type="Texture2D" uid="uid://dkwmsakrhfwec" path="res://images/shotgun ammo.png" id="1_a76mt"]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="1_dixb1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xxbw"]
+size = Vector3(1, 0.5, 1)
+
+[node name="Pickup" type="Node3D"]
+script = ExtResource("1_dixb1")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
+billboard = 2
+texture_filter = 2
+texture = ExtResource("1_a76mt")
+
+[node name="PickupArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_6xxbw")
