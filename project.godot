@@ -66,5 +66,4 @@ shoot={
 
 [rendering]
 
-renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="gl_compatibility"

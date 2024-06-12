@@ -25,7 +25,8 @@ func _on_animation_player_animation_finished(anim_name:String):
 		animation_player.play(Global.current_gun + "_idle")
 
 func shoot():
-	if can_shoot:
+	if can_shoot and Global.ammo[Global.current_gun_index] > 0 \
+	and animation_player.current_animation.ends_with("idle"):
 		if shoot_ray.is_colliding():
 			var col = shoot_ray.get_collider()
 			if col.is_in_group("enemies"):

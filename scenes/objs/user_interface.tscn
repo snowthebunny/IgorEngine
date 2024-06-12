@@ -74,6 +74,7 @@ texture = ExtResource("1_aia81")
 position = Vector2(44, 675)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_2sexm")
+autoplay = "default"
 frame_progress = 0.354806
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer"]
